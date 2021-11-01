@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>
+        Online Book Store Application
+    </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/home.css}"/>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-wrapper">
+        <a href="/"><span id="heading" style="text-decoration: none;">Online Book Store</span></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="login" class="waves-effect waves-light btn-large" style="text-decoration: none;">Login</a></li>
+            <li><a href="showRegistrationPage" class="waves-effect waves-light btn-large" style="text-decoration: none;">Register</a></li>
+        </ul>
+    </div>
+</nav>
+                <div>
+                    <img id="img1" th:src="@{/images/s1.jpg}">
+                    <div class="center">Welcome to Book Store</div>
+                </div>
+</body>
+
+</html>

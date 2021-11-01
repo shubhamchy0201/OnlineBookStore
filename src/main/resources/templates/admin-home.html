@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Admin DashBoard</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+    body {
+                background-color: #F3EBF6;
+                font-family: 'Ubuntu', sans-serif;
+         }
+   #home{
+   width:700px;
+   height:400px;
+   margin-top:200px;
+   margin-left:620px;
+   text-align:center;
+   border:1px solid blue;
+   border-radius:30px;
+   color:grey;
+   }
+
+</style>
+</head>
+<body>
+<div id="home">
+<h2>Hii, Welcome to Admin DashBoard</h2>
+
+
+<!-- Add button/link  for fetch all the books-->
+<a th:href="@{/admin/list}"  class="waves-effect waves-light  btn-large" style="text-decoration: none;">
+    Check the list of books
+</a>
+    &nbsp;&nbsp;
+<a th:href="@{/admin/customer-list}" class="waves-effect waves-light  btn-large" style="text-decoration: none;">
+    Customer List
+</a>
+    <br><br>
+    <form  th:action="@{/logout}" method="post">
+        <button class="waves-effect waves-light btn ">Sign out</button>
+    </form>
+
+</div>
+
+</body>
+</html>

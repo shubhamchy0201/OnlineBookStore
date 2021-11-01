@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Registration Success</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container" style="text-align:center">
+    <br><br><br>
+    <h3>Congratulation, You have registered successfully!</h3>
+    <br><br>
+    <button type="submit" class="btn btn-secondary"><a th:href="@{/login}">Click here to Login</a></button>
+
+    <button type="submit" class="btn btn-secondary"><a th:href="@{/}">Click here to Home page</a></button>
+</div>
+
+</body>
+</html>

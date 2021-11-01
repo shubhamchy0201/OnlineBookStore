@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Customer  DashBoard</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+    body {
+                background-color: #F3EBF6;
+                font-family: 'Ubuntu', sans-serif;
+         }
+    .home{
+       color: #661B0B;
+        text-align:center;
+        border: 1px solid blue;
+        border-radius:20px;
+        width:800px;
+        height:450px;
+        margin-left:600px;
+        margin-top:150px;
+        }
+
+</style>
+</head>
+<body>
+
+
+<div class="home">
+    <h1>Hii <span th:text="${customer.firstName}" />, Welcome to Book Store</h1>
+
+  <!--  &lt;!&ndash; Add button/link  for fetch all the books&ndash;&gt;
+    <a th:href="@{/customer/listBook(customerId=${customer.id})}"
+               class="btn btn-info btn-sm">
+        Check the list of books
+    </a>
+
+    <br><br>
+    &lt;!&ndash; Add button/link  for Update customer details&ndash;&gt;
+    <a th:href="@{/customer/showFormForUpdateCustomer(customerId=${customer.id})}"
+                 class="btn btn-info btn-sm">
+        Update Your Details
+    </a>
+
+    <br><br>
+    &lt;!&ndash; Add a logout button &ndash;&gt;
+    <form class="d-flex align-center" th:action="@{/logout}" method="post">
+        <button class="btn btn-danger" >Sign out</button>
+    </form>-->
+
+    <a th:href="@{/customer/listBook(customerId=${customer.id})}" class="waves-effect waves-light  btn-large" style="text-decoration: none;">Check list of Books</a>&nbsp;&nbsp;
+    <a th:href="@{/customer/showFormForUpdateCustomer(customerId=${customer.id})}" class="waves-effect waves-light btn-large" style="text-decoration: none;">Update Your Details</a>
+
+        <br><br>
+    <a th:href="@{/customer/myBooks(customerId=${customer.id})}" class="waves-effect waves-light btn-large" style="text-decoration: none;">My List</a>
+    <form  th:action="@{/logout}" method="post">
+        <br>
+        <br>
+        <button class="waves-effect waves-light btn ">Sign out</button>
+    </form>
+</div>
+
+</body>
+</html>

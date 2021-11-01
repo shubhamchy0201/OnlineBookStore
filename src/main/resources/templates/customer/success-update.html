@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Customer Details Updated</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+    body {
+         background-color: #F3EBF6;
+         font-family: 'Ubuntu', sans-serif;
+            }
+ .container{
+    text-align:center;
+    margin-top:50px;
+    }
+</style>
+</head>
+<body>
+<div class="container" style="text-align:center">
+    <br><br><br>
+    <h3>Congratulation, Your details have been updated successfully!</h3>
+    <br><br>
+
+    <button type="submit" class="btn btn-secondary"><a th:href="@{/customer/home(customerId=${customer.id})}">Click here to Home page</a></button>
+</div>
+
+</body>
+</html>

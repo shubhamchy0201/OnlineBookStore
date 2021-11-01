@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>List of Books</title>
+
+    <style>
+
+    body {
+                background-color: #F3EBF6;
+                font-family: 'Ubuntu', sans-serif;
+            }
+ .container{
+    text-align:center;
+    margin-top:50px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>Total  books</h3>
+    <br>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempBook : ${customer.getBooks()}">
+
+            <td th:text="${tempBook.title}" />
+            <td th:text="${tempBook.author}" />
+            <td th:text="${tempBook.price}" />
+
+        </tr>
+        </tbody>
+    </table>
+    <p class="py-2">Customer List?  <a th:href="@{/admin/customer-list}">Click Here</a></p>
+    <p class="py-2">Home page?  <a th:href="@{/admin/home}">Click Here</a></p>
+</div>
+
+</body>
+</html>
+
+
+

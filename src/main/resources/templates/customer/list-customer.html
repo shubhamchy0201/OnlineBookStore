@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Customer List</title>
+</head>
+<style>
+
+    body {
+                background-color: #F3EBF6;
+                font-family: 'Ubuntu', sans-serif;
+            }
+    .container{
+    text-align:center;
+
+    }
+</style>
+<body>
+
+<div class="container">
+    <br><br>
+    <h3>Customer list</h3>
+    <hr>
+
+    <form th:action="@{/admin/searchCustomer}"
+          method="POST" class="form-inline right">
+
+        <input type="search"
+               name="firstName"
+               placeholder="First name"
+               class="form-control-sm ml-5 mr-2 mb-3" th:required="required" />
+
+        <input type="search"
+               name="lastName"
+               placeholder="Last name"
+               class="form-control-sm mr-2 mb-3" th:required="required" />
+
+        <button type="submit"
+                class="btn btn-success btn-sm mb-3">Search</button>
+
+    </form>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempCustomer : ${customers}">
+
+            <td th:text="${tempCustomer.firstName}" />
+            <td th:text="${tempCustomer.lastName}" />
+            <td th:text="${tempCustomer.email}" />
+
+            <td>
+                <!-- Add "delete" button/link -->
+                <a th:href="@{/admin/deleteCustomer(customerId=${tempCustomer.id})}"
+                   class="btn btn-danger btn-sm"
+                   onclick="if (!(confirm('Are you sure you want to delete this Customer?'))) return false">
+                    Delete Customer
+                </a>
+
+                <!-- Add "delete" button/link -->
+                <a th:href="@{/admin/viewList(customerId=${tempCustomer.id})}"
+                   class="btn btn-danger btn-sm" >
+                    View Book List
+                </a>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--&lt;!&ndash;Pagination&ndash;&gt;
+    <nav aria-label="pagination example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </nav>-->
+
+
+    <p class="py-2">Home Page? <a th:href="@{/admin/home}">Click Here</a></p>
+</div>
+
+</body>
+</html>
+
+
+

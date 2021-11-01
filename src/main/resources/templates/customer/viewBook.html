@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Read Book</title>
+
+    <style>
+       body{
+          background-color: #F3EBF6;
+          font-family: 'Ubuntu', sans-serif;
+            }
+     .container{
+       color: #661B0B;
+       text-align:center;
+        margin-top:100px;
+        border: 1px solid black;
+        width:550px;
+        height:300px;
+        }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    Book Title: <span th:text="${book.title}"></span>   &nbsp;&nbsp;
+    Book Author: <span th:text="${book.author}" ></span>
+    <br>
+    <hr>
+    <p>
+        Thanks for selecting my book.
+        <p th:text="${book.author}" ></p>
+    </p>
+    <br>
+
+    <p class="py-2">Back to Book List?  <a th:href="@{/customer/listBook(customerId=${customer.id})}">Click Here</a></p>
+    &nbsp;&nbsp;
+    <!-- Add a logout button -->
+    <form class="d-flex align-left" th:action="@{/logout}" method="post">
+        <button class="btn btn-danger" type="submit">Sign out</button>
+    </form>
+
+</div>
+
+</body>
+</html>
+
+
+

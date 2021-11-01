@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Save Book</title>
+
+    <style>
+
+    body {
+               background-color: #F3EBF6;
+                font-family: 'Ubuntu', sans-serif;
+            }
+</style>
+</head>
+<body>
+<div class="container">
+    <br><br>
+    <p class="h4 mb-4">Save Book</p>
+
+    <form action="#" th:action="@{/admin/save}" th:object="${book}" method="POST">
+
+        <!-- Add hidden form field to handle update -->
+        <input type="hidden" th:field="*{id}" />
+
+        <div class="form-inline">
+            <input type="text" th:field="*{title}"
+                   class="form-control mb-4 col-4" placeholder="Enter Book title">
+
+            <!-- Add error message (if present) -->
+            <span th:if="${#fields.hasErrors('title')}"
+                  th:errors="*{title}"
+                  class="badge badge-danger ml-2 mb-4"></span>
+
+        </div>
+
+        <div class="form-inline">
+
+            <input type="text" th:field="*{author}"
+                   class="form-control mb-4 col-4" placeholder="Enter Author name">
+
+            <!-- Add error message (if present) -->
+            <span th:if="${#fields.hasErrors('author')}"
+                  th:errors="*{author}"
+                  class="badge badge-danger ml-2 mb-4"></span>
+
+        </div>
+
+        <div class="form-inline">
+
+            <input type="text" th:field="*{price}"
+                   class="form-control mb-4 col-4" placeholder="Enter price">
+
+            <!-- Add error message (if present) -->
+            <span th:if="${#fields.hasErrors('price')}"
+                  th:errors="*{price}"
+                  class="badge badge-danger ml-2 mb-4"></span>
+
+        </div>
+
+        <button type="submit" class="btn btn-info col-2">Save</button>
+
+    </form>
+    <p class="py-2">Book List? <a th:href="@{/admin/list}">Click Here</a></p>
+</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>List of Books</title>
+
+    <style>
+
+    body {
+                background-color: #F3EBF6;
+                font-family: 'Ubuntu', sans-serif;
+            }
+ .container{
+    text-align:center;
+    margin-top:50px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>Total  books</h3>
+    <br>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempBook : ${customer.getBooks()}">
+
+            <td th:text="${tempBook.title}" />
+            <td th:text="${tempBook.author}" />
+            <td th:text="${tempBook.price}" />
+
+            <td>
+
+                <!-- Add "View" button/link -->
+                <a th:href="@{/customer/viewBook(customerId=${customer.id},bookId=${tempBook.id})}"
+                   class="btn btn-info btn-sm  text-xl-left">
+                    Read
+                </a>
+
+                <!-- Add "View" button/link -->
+                <a th:href="@{/customer/deleteFromList(customerId=${customer.id},bookId=${tempBook.id})}"
+                   class="btn btn-info btn-sm  text-xl-left">
+                    Delete from list
+                </a>
+
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <p class="py-2">Book List?  <a th:href="@{/customer/listBook(customerId=${customer.id})}">Click Here</a></p>
+    <p class="py-2">Home page?  <a th:href="@{/customer/home(customerId=${customer.id})}">Click Here</a></p>
+</div>
+
+</body>
+</html>
+
+
+
